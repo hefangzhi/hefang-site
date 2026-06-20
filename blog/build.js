@@ -143,15 +143,28 @@ ${items}
       </aside>`;
 }
 
+function renderSiteHeader({ home, assetsRoot, blogHref }) {
+  return `  <header class="site-header">
+    <nav class="shell site-nav" aria-label="站点导航">
+      <a class="brand" href="${home}"><img class="brand-logo" src="${assetsRoot}/icon.png" alt="" width="28" height="28">何方 · 小站</a>
+      <div class="site-nav-links">
+        <a href="${home}#works">工具</a>
+        <a href="${blogHref}">博客</a>
+        <a href="${home}#about">关于</a>
+        <a href="${home}#contact">动态</a>
+      </div>
+    </nav>
+  </header>`;
+}
+
 function pageShell({ title, depth, body }) {
   const home = depth === 0 ? '../index.html' : '../../index.html';
-  const blog = depth === 0 ? 'index.html' : '../index.html';
-  const backHref = depth === 0 ? home : blog;
-  const backLabel = depth === 0 ? '← 返回主页' : '← 返回博客';
+  const blogHref = depth === 0 ? 'index.html' : '../index.html';
   const toolsRoot = depth === 0 ? '../tools' : '../../tools';
   const assetsRoot = depth === 0 ? '../assets' : '../../assets';
   const toolsCss = `${toolsRoot}/shared.css`;
   const blogCss = depth === 0 ? 'shared.css' : '../shared.css';
+  const header = renderSiteHeader({ home, assetsRoot, blogHref });
 
   return `<!DOCTYPE html>
 <html lang="zh-CN">
@@ -163,16 +176,12 @@ function pageShell({ title, depth, body }) {
   <link rel="icon" href="${assetsRoot}/icon.png" type="image/png">
   <link rel="apple-touch-icon" href="${assetsRoot}/icon.png">
   <link rel="stylesheet" href="${toolsCss}">
+  <link rel="stylesheet" href="${toolsRoot}/site-nav.css">
   <link rel="stylesheet" href="${toolsRoot}/cursor.css">
   <link rel="stylesheet" href="${blogCss}">
 </head>
 <body>
-  <header>
-    <nav class="shell">
-      <a class="brand" href="${home}"><img class="brand-logo" src="${assetsRoot}/icon.png" alt="" width="28" height="28">何方 · 小站</a>
-      <a class="back" href="${backHref}">${backLabel}</a>
-    </nav>
-  </header>
+${header}
   <main class="shell">
 ${body}
   </main>

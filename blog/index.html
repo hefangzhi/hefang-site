@@ -8,14 +8,20 @@
   <link rel="icon" href="../assets/icon.png" type="image/png">
   <link rel="apple-touch-icon" href="../assets/icon.png">
   <link rel="stylesheet" href="../tools/shared.css">
+  <link rel="stylesheet" href="../tools/site-nav.css">
   <link rel="stylesheet" href="../tools/cursor.css">
   <link rel="stylesheet" href="shared.css">
 </head>
 <body>
-  <header>
-    <nav class="shell">
+  <header class="site-header">
+    <nav class="shell site-nav" aria-label="站点导航">
       <a class="brand" href="../index.html"><img class="brand-logo" src="../assets/icon.png" alt="" width="28" height="28">何方 · 小站</a>
-      <a class="back" href="../index.html">← 返回主页</a>
+      <div class="site-nav-links">
+        <a href="../index.html#works">工具</a>
+        <a href="index.html">博客</a>
+        <a href="../index.html#about">关于</a>
+        <a href="../index.html#contact">动态</a>
+      </div>
     </nav>
   </header>
   <main class="shell">
