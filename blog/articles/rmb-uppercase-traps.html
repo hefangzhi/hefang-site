@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1efe9">
+  <title>写票据时，金额大写为什么容易出错 · 何方 · 小站</title>
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../assets/icon.png">
+  <link rel="stylesheet" href="../../tools/shared.css">
+  <link rel="stylesheet" href="../../tools/cursor.css">
+  <link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <a class="brand" href="../../index.html"><img class="brand-logo" src="../../assets/icon.png" alt="" width="28" height="28">何方 · 小站</a>
+      <a class="back" href="../index.html">← 返回博客</a>
+    </nav>
+  </header>
+  <main class="shell">
+    <div class="blog-layout">
+      <aside class="blog-sidebar" aria-label="本篇目录">
+        <p class="blog-sidebar-label">本篇目录</p>
+        <ul class="blog-sidebar-list">
+        <li class="blog-sidebar-item"><a href="#常见错误类型">常见错误类型</a></li>
+        <li class="blog-sidebar-item is-h3"><a href="#1-整-和-零-用错">1. 「整」和「零」用错</a></li>
+        <li class="blog-sidebar-item is-h3"><a href="#2-万-亿-的进位">2. 「万」「亿」的进位</a></li>
+        <li class="blog-sidebar-item is-h3"><a href="#3-把-贰-写成-两">3. 把「贰」写成「两」</a></li>
+        <li class="blog-sidebar-item"><a href="#工具帮你做了什么">工具帮你做了什么</a></li>
+        <li class="blog-sidebar-item"><a href="#什么时候仍然要人工核对">什么时候仍然要人工核对</a></li>
+        <li class="blog-sidebar-item"><a href="#一个小习惯">一个小习惯</a></li>
+        </ul>
+      </aside>
+      <div class="blog-main">
+        <div class="eyebrow">博客 · 文章</div>
+        <h1>写票据时，金额大写为什么容易出错</h1>
+        <div class="article-meta"><time datetime="2026-06-19">2026-06-19</time></div>
+        <article class="article-body">
+<p>填报销单、合同或手写票据时，金额大写是绕不过去的一关。看起来只是「把数字翻译成中文」，实际操作里却很容易翻车。这也是我做 <a href="../../tools/number-cn/index.html">人民币大写转换工具</a> 的原因。</p>
+<h2 id="常见错误类型">常见错误类型</h2>
+<h3 id="1-整-和-零-用错">1. 「整」和「零」用错</h3>
+<ul>
+<li><code>100.00</code> 应写「壹佰元<strong>整</strong>」，不是「壹佰元零角零分」</li>
+<li><code>100.05</code> 中间往往要补「<strong>零</strong>」：「壹佰元<strong>零</strong>伍分」</li>
+</ul>
+<p>角、分不全为零时，规则会变化。手工转换时，这是最容易犹豫的地方。</p>
+<h3 id="2-万-亿-的进位">2. 「万」「亿」的进位</h3>
+<p><code>10000</code> 不是「壹仟零佰...」，而是「<strong>壹万元整</strong>」。</p>
+<p>更大的数字还要处理「万」「亿」之间的零，例如 <code>100010000.50</code> 这种中间带空档的金额，人工转换时特别容易漏零或多零。</p>
+<h3 id="3-把-贰-写成-两">3. 把「贰」写成「两」</h3>
+<p>财务大写里，数字 2 应写作「<strong>贰</strong>」，不是「两」。这是规范写法，不是平时口语习惯。</p>
+<h2 id="工具帮你做了什么">工具帮你做了什么</h2>
+<p>站点上的转换工具会：</p>
+<ul>
+<li>支持负数（前面加「负」）</li>
+<li>限制最多两位小数</li>
+<li>按「元、角、分、整」输出规范格式</li>
+<li>一键复制结果</li>
+</ul>
+<p>输入 <code>123456.78</code>，输出：</p>
+<pre><code>壹拾贰万叁仟肆佰伍拾陆元柒角捌分
+</code></pre>
+<h2 id="什么时候仍然要人工核对">什么时候仍然要人工核对</h2>
+<p>工具能处理格式，但<strong>不能替你知道业务背景</strong>。这些情况建议再检查一遍：</p>
+<ul>
+<li>合同里对「整」或「约」有特殊约定</li>
+<li>外币折算后的中间金额</li>
+<li>需要和大写金额<strong>交叉核对</strong>的正式票据</li>
+</ul>
+<h2 id="一个小习惯">一个小习惯</h2>
+<p>我现在会先用工具生成大写，再大声读一遍。读起来拗口的地方，往往就是写错的地方。</p>
+<p>金额不大，但错一个「零」有时比错一个数字更麻烦。让机器做重复劳动，人负责最后确认——这大概就是这个小工具存在的意义。</p>
+
+        </article>
+          <nav class="article-nav"><a href="bmi-not-just-a-number.html">← BMI 不只是算一个数字</a> · <a href="why-local-personal-site.html">为什么要做一个本地个人网站 →</a></nav>
+      </div>
+    </div>
+  </main>
+  <script src="../../tools/cursor.js"></script>
+</body>
+</html>

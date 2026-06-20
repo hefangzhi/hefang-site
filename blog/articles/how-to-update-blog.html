@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1efe9">
+  <title>博客怎么写、怎么更新 · 何方 · 小站</title>
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../assets/icon.png">
+  <link rel="stylesheet" href="../../tools/shared.css">
+  <link rel="stylesheet" href="../../tools/cursor.css">
+  <link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <a class="brand" href="../../index.html"><img class="brand-logo" src="../../assets/icon.png" alt="" width="28" height="28">何方 · 小站</a>
+      <a class="back" href="../index.html">← 返回博客</a>
+    </nav>
+  </header>
+  <main class="shell">
+    <div class="blog-layout">
+      <aside class="blog-sidebar" aria-label="本篇目录">
+        <p class="blog-sidebar-label">本篇目录</p>
+        <ul class="blog-sidebar-list">
+        <li class="blog-sidebar-item"><a href="#文件在哪里">文件在哪里</a></li>
+        <li class="blog-sidebar-item"><a href="#新建一篇文章">新建一篇文章</a></li>
+        <li class="blog-sidebar-item"><a href="#构建博客">构建博客</a></li>
+        <li class="blog-sidebar-item"><a href="#怎么预览">怎么预览</a></li>
+        <li class="blog-sidebar-item"><a href="#写博客的小原则">写博客的小原则</a></li>
+        <li class="blog-sidebar-item"><a href="#如果遇到问题">如果遇到问题</a></li>
+        </ul>
+      </aside>
+      <div class="blog-main">
+        <div class="eyebrow">博客 · 文章</div>
+        <h1>博客怎么写、怎么更新</h1>
+        <div class="article-meta"><time datetime="2026-06-20">2026-06-20</time></div>
+        <article class="article-body">
+<p>何方 · 小站的博客已经换成轻量方案：不用 Hexo，只保留「文章列表 + 文章页」。</p>
+<h2 id="文件在哪里">文件在哪里</h2>
+<pre><code class="language-text">我的本地网页/
+├─ index.html          ← 主页，直接改 HTML
+├─ tools/              ← 工具页
+└─ blog/
+   ├─ posts/           ← 文章源码（改这里）
+   ├─ articles/        ← 构建生成（不要手改）
+   ├─ index.html       ← 构建生成：博客列表
+   └─ build.js         ← 构建脚本
+</code></pre>
+<p><strong>记住一条：</strong> 在 <code>posts/</code> 里写 Markdown，运行构建后才会更新 <code>index.html</code> 和 <code>articles/</code>。</p>
+<h2 id="新建一篇文章">新建一篇文章</h2>
+<p>在 <code>blog/posts/</code> 新建一个 <code>.md</code> 文件，例如 <code>my-new-post.md</code>。文件开头写：</p>
+<pre><code class="language-yaml">---
+title: 文章标题
+date: 2026-06-20
+excerpt: 可选，列表页显示的摘要。
+---
+</code></pre>
+<p>然后写正文即可。</p>
+<h2 id="构建博客">构建博客</h2>
+<p>在 <code>blog</code> 目录运行：</p>
+<pre><code class="language-powershell">npm install
+node build.js
+</code></pre>
+<p>如果已经安装过依赖，以后只需：</p>
+<pre><code class="language-powershell">node build.js
+</code></pre>
+<h2 id="怎么预览">怎么预览</h2>
+<p>不需要启动本地服务器：</p>
+<ol>
+<li>双击根目录的 <code>index.html</code> 打开主页</li>
+<li>点击「我的博客」，或直接打开 <code>blog/index.html</code></li>
+</ol>
+<h2 id="写博客的小原则">写博客的小原则</h2>
+<ol>
+<li><strong>一篇只讲一件事</strong></li>
+<li>工具相关文章，可以链接到 <code>../../tools/</code> 里的对应页面</li>
+<li>改完记得运行 <code>node build.js</code></li>
+<li>不用追求更新频率，有用比频繁更重要</li>
+</ol>
+<h2 id="如果遇到问题">如果遇到问题</h2>
+<table>
+<thead>
+<tr>
+<th>现象</th>
+<th>可能原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>新文章没出现</td>
+<td>忘记运行 <code>node build.js</code></td>
+</tr>
+<tr>
+<td>页面样式乱了</td>
+<td>不要手改 <code>articles/</code> 里的 HTML</td>
+</tr>
+<tr>
+<td>工具链接打不开</td>
+<td>从文章页出发，工具路径应写成 <code>../../tools/...</code></td>
+</tr>
+</tbody></table>
+
+        </article>
+          <nav class="article-nav"><a href="hello-world.html">← 欢迎来到何方 · 小站</a> · <a href="ip-before-speedtest.html">测网速之前，先看看你的 IP →</a></nav>
+      </div>
+    </div>
+  </main>
+  <script src="../../tools/cursor.js"></script>
+</body>
+</html>

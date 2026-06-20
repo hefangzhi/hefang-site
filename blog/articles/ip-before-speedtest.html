@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1efe9">
+  <title>测网速之前，先看看你的 IP · 何方 · 小站</title>
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../assets/icon.png">
+  <link rel="stylesheet" href="../../tools/shared.css">
+  <link rel="stylesheet" href="../../tools/cursor.css">
+  <link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <a class="brand" href="../../index.html"><img class="brand-logo" src="../../assets/icon.png" alt="" width="28" height="28">何方 · 小站</a>
+      <a class="back" href="../index.html">← 返回博客</a>
+    </nav>
+  </header>
+  <main class="shell">
+    <div class="blog-layout">
+      <aside class="blog-sidebar" aria-label="本篇目录">
+        <p class="blog-sidebar-label">本篇目录</p>
+        <ul class="blog-sidebar-list">
+        <li class="blog-sidebar-item"><a href="#ip-能告诉你什么">IP 能告诉你什么</a></li>
+        <li class="blog-sidebar-item"><a href="#为什么测速结果差很多">为什么测速结果差很多</a></li>
+        <li class="blog-sidebar-item"><a href="#工具页里的测速合集">工具页里的测速合集</a></li>
+        <li class="blog-sidebar-item"><a href="#关于隐私">关于隐私</a></li>
+        <li class="blog-sidebar-item"><a href="#我的使用顺序">我的使用顺序</a></li>
+        </ul>
+      </aside>
+      <div class="blog-main">
+        <div class="eyebrow">博客 · 文章</div>
+        <h1>测网速之前，先看看你的 IP</h1>
+        <div class="article-meta"><time datetime="2026-06-20">2026-06-20</time></div>
+        <article class="article-body">
+<p>网速慢的时候，第一反应往往是打开测速网站。但在反复刷新 Speedtest 之前，我通常会先看一眼 <strong>IP 信息</strong>——这也是 <a href="../../tools/ip/index.html">IP 与网速测试工具</a> 把两块功能放在一起的原因。</p>
+<h2 id="ip-能告诉你什么">IP 能告诉你什么</h2>
+<p>公网 IP 本身只是一串地址，但配合归属地查询，可以快速判断：</p>
+<ul>
+<li>你现在走的是 <strong>IPv4 还是 IPv6</strong></li>
+<li>运营商（ISP）是否和预期一致</li>
+<li>归属地是否突然变化——有时说明 VPN、代理或网络线路切换了</li>
+</ul>
+<p>如果测速结果异常，先看 IP，能排除「其实连的不是平时那条网」这种低级误会。</p>
+<h2 id="为什么测速结果差很多">为什么测速结果差很多</h2>
+<p>同一个宽带，不同测速网站结果可能相差很大。常见原因：</p>
+<table>
+<thead>
+<tr>
+<th>因素</th>
+<th>影响</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>测速节点距离</td>
+<td>节点越远，延迟通常越高</td>
+</tr>
+<tr>
+<td>测速协议</td>
+<td>有的偏下载，有的综合上传</td>
+</tr>
+<tr>
+<td>当前网络负载</td>
+<td>其他设备正在下载会拉低结果</td>
+</tr>
+<tr>
+<td>浏览器 vs 客户端</td>
+<td>实现方式不同，结果会有偏差</td>
+</tr>
+</tbody></table>
+<p>所以我在工具页整理了多个测速入口，而不是只放一个链接。交叉对比，比迷信某一个数字更有用。</p>
+<h2 id="工具页里的测速合集">工具页里的测速合集</h2>
+<p>目前收录了这些常用服务：</p>
+<ol>
+<li><strong>Speedtest by Ookla</strong> — 综合测速，适合日常</li>
+<li><strong>FAST.com</strong> — 快速看下载速度</li>
+<li><strong>Cloudflare Speed Test</strong> — 延迟、抖动、丢包更细</li>
+<li><strong>SpeedOf.Me</strong> — 浏览器 HTML5 测速</li>
+<li><strong>nPerf</strong> — 适合对比验证</li>
+<li><strong>OpenSpeedTest</strong> — 备用选项</li>
+</ol>
+<p>它们都会消耗真实流量。测一次就好，不必连续狂点。</p>
+<h2 id="关于隐私">关于隐私</h2>
+<p>查询 IP 和归属地，意味着你会向第三方服务发起请求。工具页用的是公开接口，<strong>不会把你的信息存到本地服务器</strong>——因为这个站点本身就没有后端。</p>
+<p>但如果你对隐私很敏感，可以只用离线工具，或只在需要排查网络问题时打开这一页。</p>
+<h2 id="我的使用顺序">我的使用顺序</h2>
+<ol>
+<li>打开工具页，确认 IP 和运营商</li>
+<li>选一个测速站点，看下载、上传、延迟</li>
+<li>如果结果离谱，换另一个站点交叉验证</li>
+<li>仍然不对，再查路由器、网线、Wi-Fi 信号</li>
+</ol>
+<p>网速问题很少靠「多测几次」 magically 变好，但<strong>先看环境、再看数字</strong>，至少不会白忙一场。</p>
+
+        </article>
+          <nav class="article-nav"><a href="how-to-update-blog.html">← 博客怎么写、怎么更新</a> · <a href="bmi-not-just-a-number.html">BMI 不只是算一个数字 →</a></nav>
+      </div>
+    </div>
+  </main>
+  <script src="../../tools/cursor.js"></script>
+</body>
+</html>

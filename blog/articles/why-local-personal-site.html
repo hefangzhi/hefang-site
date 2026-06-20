@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1efe9">
+  <title>为什么要做一个本地个人网站 · 何方 · 小站</title>
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../assets/icon.png">
+  <link rel="stylesheet" href="../../tools/shared.css">
+  <link rel="stylesheet" href="../../tools/cursor.css">
+  <link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <a class="brand" href="../../index.html"><img class="brand-logo" src="../../assets/icon.png" alt="" width="28" height="28">何方 · 小站</a>
+      <a class="back" href="../index.html">← 返回博客</a>
+    </nav>
+  </header>
+  <main class="shell">
+    <div class="blog-layout">
+      <aside class="blog-sidebar" aria-label="本篇目录">
+        <p class="blog-sidebar-label">本篇目录</p>
+        <ul class="blog-sidebar-list">
+        <li class="blog-sidebar-item"><a href="#它不需要很复杂">它不需要很复杂</a></li>
+        <li class="blog-sidebar-item"><a href="#主页-工具-博客-各干各的">主页、工具、博客，各干各的</a></li>
+        <li class="blog-sidebar-item"><a href="#本地优先-不等于只能本地">本地优先，不等于只能本地</a></li>
+        <li class="blog-sidebar-item"><a href="#我想持续做下去">我想持续做下去</a></li>
+        </ul>
+      </aside>
+      <div class="blog-main">
+        <div class="eyebrow">博客 · 文章</div>
+        <h1>为什么要做一个本地个人网站</h1>
+        <div class="article-meta"><time datetime="2026-06-18">2026-06-18</time></div>
+        <article class="article-body">
+<p>很多人问：现在已经有 Notion、公众号、小红书，为什么还要自己搭一个网站？</p>
+<p>我的答案很简单：<strong>我想拥有一个完全属于自己的地方。</strong></p>
+<h2 id="它不需要很复杂">它不需要很复杂</h2>
+<p>这个网站没有后端，没有数据库，也没有登录系统。主页和工具页就是普通的 HTML 文件，双击 <code>index.html</code> 就能打开。博客用 Markdown 写作，需要更新时运行一次构建脚本。</p>
+<p>这种「轻量」对我来说反而是优点：</p>
+<ul>
+<li>改一个按钮的颜色，直接打开文件就能改</li>
+<li>工具坏了，本地立刻能复现</li>
+<li>不依赖某个平台会不会突然改规则</li>
+</ul>
+<h2 id="主页-工具-博客-各干各的">主页、工具、博客，各干各的</h2>
+<p>我刻意把结构拆开了：</p>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主页</td>
+<td>展示我是谁、有哪些作品</td>
+</tr>
+<tr>
+<td><code>tools/</code></td>
+<td>放真正能用的小工具</td>
+</tr>
+<tr>
+<td><code>blog/</code></td>
+<td>记录想法、更新和笔记</td>
+</tr>
+</tbody></table>
+<p>主页负责「门面」，工具负责「实用」，博客负责「留下痕迹」。三者可以独立生长，不会互相拖后腿。</p>
+<h2 id="本地优先-不等于只能本地">本地优先，不等于只能本地</h2>
+<p>「本地网页」并不意味着永远不上线。它只是说：<strong>先把东西做出来，再决定要不要发布。</strong></p>
+<p>你可以先在硬盘里打磨，满意了再部署到 GitHub Pages、Cloudflare Pages，或者任何静态托管服务。网站本身就是一堆文件，走到哪里都能带走。</p>
+<h2 id="我想持续做下去">我想持续做下去</h2>
+<p>这个站点叫「何方 · 小站」，不是「个人作品集终稿」。它会随着我学到的东西一起变——今天加一个小工具，明天写一篇笔记，后天改一版首页文案。</p>
+<p>如果你也在犹豫要不要做自己的网站，我的建议是：<strong>先做一个能打开的首页，再加一个你真的会用的小工具。</strong> 剩下的，慢慢长就好。</p>
+
+        </article>
+          <nav class="article-nav"><a href="rmb-uppercase-traps.html">← 写票据时，金额大写为什么容易出错</a></nav>
+      </div>
+    </div>
+  </main>
+  <script src="../../tools/cursor.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f1efe9"><title>IP 与网速测试 · 何方 · 小站</title><link rel="icon" href="../../assets/icon.png" type="image/png"><link rel="apple-touch-icon" href="../../assets/icon.png"><link rel="stylesheet" href="../shared.css"><link rel="stylesheet" href="../cursor.css"></head><body><header><nav class="shell"><a class="brand" href="../../index.html"><img class="brand-logo" src="../../assets/icon.png" alt="" width="28" height="28">何方 · 小站</a><a class="back" href="../../index.html">← 返回主页</a></nav></header><main class="shell"><div class="eyebrow">网络工具 · 03</div><h1>IP 与网速测试</h1><p class="lead">查看当前网络地址，顺手测一下网速。</p><section class="ip-section"><div class="ip-section-head"><div><h2>当前 IP 信息</h2></div><div class="ip-head-actions"><span class="ip-state" id="ip-state">正在检测…</span><button class="ip-refresh" id="ip-refresh" type="button">重新检测</button><a class="btn" href="https://ip.ssss.fun/" target="_blank" rel="noopener noreferrer">完整检测 ↗</a></div></div><div class="ip-result-box" aria-live="polite">
+  
+  <div class="ip-version-list">
+    <div class="ip-single-row"><span class="ip-kind">IPv4</span><div class="ip-field"><span class="ip-field-label">IP 地址</span><strong class="ip-value" id="ipv4-address">检测中…</strong></div><div class="ip-field ip-place"><span class="ip-field-label">IP 归属地</span><strong id="ipv4-location">查询中…</strong></div></div>
+    <div class="ip-single-row"><span class="ip-kind">IPv6</span><div class="ip-field"><span class="ip-field-label">IP 地址</span><strong class="ip-value" id="ipv6-address">检测中…</strong></div><div class="ip-field ip-place"><span class="ip-field-label">IP 归属地</span><strong id="ipv6-location">查询中…</strong></div></div>
+  </div>
+</div></section><section class="speed-section"><div class="speed-head"><div><h2>网速测试</h2></div></div><div class="speed-grid" id="speed-grid"></div></section></main><script>const ipState=document.getElementById('ip-state'),ipv4Address=document.getElementById('ipv4-address'),ipv6Address=document.getElementById('ipv6-address'),ipv4Location=document.getElementById('ipv4-location'),ipv6Location=document.getElementById('ipv6-location'),refreshButton=document.getElementById('ip-refresh');
+function addJsonp(src,onError){const script=document.createElement('script');script.src=src;script.async=true;script.onerror=()=>{script.remove();if(onError)onError()};document.body.appendChild(script)}
+function locationText(data){return [data.country,data.regionName||data.region,data.city,data.district].filter(Boolean).join(' - ')||'未提供'}
+function resetVersion(address,location){address.textContent='检测中…';address.classList.remove('supported','unsupported');location.textContent='查询中…'}
+function failVersion(address,location,type){address.textContent=type==='IPv6'?'当前网络可能未启用 IPv6':'暂时无法获取，请重新检测';address.classList.add('unsupported');location.textContent='暂无归属地信息'}
+window.receiveIpv4=function(data){if(!data||!data.ip){failVersion(ipv4Address,ipv4Location,'IPv4');updateState();return}ipv4Address.textContent=data.ip;ipv4Address.classList.add('supported');addJsonp(`https://api.ssss.fun/ip/info.php?ip=${encodeURIComponent(data.ip)}&lang=zh-CN&callback=receiveIpv4Info`,()=>{ipv4Location.textContent='未提供';updateState()})}
+window.receiveIpv4Info=function(data){ipv4Location.textContent=locationText(data);updateState()}
+window.receiveIpv6=function(data){if(!data||!data.ip){failVersion(ipv6Address,ipv6Location,'IPv6');updateState();return}ipv6Address.textContent=data.ip;ipv6Address.classList.add('supported');addJsonp(`https://api.ssss.fun/ip/info.php?ip=${encodeURIComponent(data.ip)}&lang=zh-CN&callback=receiveIpv6Info`,()=>{ipv6Location.textContent='未提供';updateState()})}
+window.receiveIpv6Info=function(data){ipv6Location.textContent=locationText(data);updateState()}
+function updateState(){const pending=[ipv4Address,ipv6Address,ipv4Location,ipv6Location].some(el=>el.textContent.includes('检测中')||el.textContent.includes('查询中'));ipState.textContent=pending?'正在查询地址信息…':'检测完成';if(!pending)ipState.classList.add('ok');refreshButton.disabled=pending}
+function detectNetwork(){refreshButton.disabled=true;ipState.textContent='正在检测 IPv4 与 IPv6…';ipState.classList.remove('ok','error');resetVersion(ipv4Address,ipv4Location);resetVersion(ipv6Address,ipv6Location);addJsonp(`https://api-ipv4.ip.sb/jsonip?lang=zh-CN&callback=receiveIpv4&_=${Date.now()}`,()=>{failVersion(ipv4Address,ipv4Location,'IPv4');updateState()});addJsonp(`https://api-ipv6.ip.sb/jsonip?lang=zh-CN&callback=receiveIpv6&_=${Date.now()}`,()=>{failVersion(ipv6Address,ipv6Location,'IPv6');updateState()})}
+refreshButton.addEventListener('click',detectNetwork);detectNetwork();const speedTools=[{name:'Speedtest by Ookla',url:'https://www.speedtest.net/',tag:'首选',description:'下载、上传和延迟综合测试。',use:'日常测速',featured:true},{name:'FAST.com',url:'https://fast.com/',tag:'简洁',description:'打开即测下载速度。',use:'快速测速'},{name:'Cloudflare Speed Test',url:'https://speed.cloudflare.com/',tag:'详细',description:'查看速度、延迟、抖动和丢包。',use:'网络质量'},{name:'SpeedOf.Me',url:'https://speedof.me/',tag:'HTML5',description:'简洁的浏览器测速工具。',use:'备用测速'},{name:'nPerf',url:'https://www.nperf.com/en/',tag:'综合',description:'速度与延迟综合测试。',use:'结果对比'},{name:'OpenSpeedTest',url:'https://openspeedtest.com/',tag:'备用',description:'无需安装即可测速。',use:'备用测速'}];const grid=document.getElementById('speed-grid');grid.innerHTML=speedTools.map((item,index)=>`<article class="speed-card${item.featured?' featured':''}"><div class="speed-card-top"><span class="speed-number">0${index+1}</span><span class="speed-tag">${item.tag}</span></div><h3>${item.name}</h3><p>${item.description}</p><div class="speed-use"><span>适合</span>${item.use}</div><a href="${item.url}" target="_blank" rel="noopener noreferrer">开始测速 ↗</a></article>`).join('');</script><script src="../cursor.js"></script></body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

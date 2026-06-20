@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f1efe9">
+  <title>BMI 不只是算一个数字 · 何方 · 小站</title>
+  <link rel="icon" href="../../assets/icon.png" type="image/png">
+  <link rel="apple-touch-icon" href="../../assets/icon.png">
+  <link rel="stylesheet" href="../../tools/shared.css">
+  <link rel="stylesheet" href="../../tools/cursor.css">
+  <link rel="stylesheet" href="../shared.css">
+</head>
+<body>
+  <header>
+    <nav class="shell">
+      <a class="brand" href="../../index.html"><img class="brand-logo" src="../../assets/icon.png" alt="" width="28" height="28">何方 · 小站</a>
+      <a class="back" href="../index.html">← 返回博客</a>
+    </nav>
+  </header>
+  <main class="shell">
+    <div class="blog-layout">
+      <aside class="blog-sidebar" aria-label="本篇目录">
+        <p class="blog-sidebar-label">本篇目录</p>
+        <ul class="blog-sidebar-list">
+        <li class="blog-sidebar-item"><a href="#公式本身并不神秘">公式本身并不神秘</a></li>
+        <li class="blog-sidebar-item"><a href="#中国标准和-who-标准不一样">中国标准和 WHO 标准不一样</a></li>
+        <li class="blog-sidebar-item"><a href="#它适合做什么">它适合做什么</a></li>
+        <li class="blog-sidebar-item"><a href="#它不适合做什么">它不适合做什么</a></li>
+        <li class="blog-sidebar-item"><a href="#怎么用更合理">怎么用更合理</a></li>
+        </ul>
+      </aside>
+      <div class="blog-main">
+        <div class="eyebrow">博客 · 文章</div>
+        <h1>BMI 不只是算一个数字</h1>
+        <div class="article-meta"><time datetime="2026-06-19">2026-06-19</time></div>
+        <article class="article-body">
+<p>站点上的 <a href="../../tools/bmi/index.html">BMI 计算器</a> 看起来只做一件事：输入身高体重，输出一个数字。但我在做它的时候，更想回答的问题是——<strong>这个数字到底意味着什么，又不意味着什么。</strong></p>
+<h2 id="公式本身并不神秘">公式本身并不神秘</h2>
+<p>BMI 的计算公式是：</p>
+<pre><code>BMI = 体重（kg）÷ 身高²（m）
+</code></pre>
+<p>例如身高 175 cm、体重 65 kg：</p>
+<pre><code>65 ÷ 1.75² ≈ 21.2
+</code></pre>
+<p>它本质上是一个用身高标准化体重后的比值，方便在人群层面做筛查和统计。</p>
+<h2 id="中国标准和-who-标准不一样">中国标准和 WHO 标准不一样</h2>
+<p>同一个 BMI，在不同标准下可能落在不同区间。站点采用的是<strong>中国成人常用分级</strong>（WS/T 428）：</p>
+<table>
+<thead>
+<tr>
+<th>结果</th>
+<th>BMI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>偏瘦</td>
+<td>&lt; 18.5</td>
+</tr>
+<tr>
+<td>正常</td>
+<td>18.5 – 23.9</td>
+</tr>
+<tr>
+<td>超重</td>
+<td>24.0 – 27.9</td>
+</tr>
+<tr>
+<td>肥胖</td>
+<td>≥ 28.0</td>
+</tr>
+</tbody></table>
+<p>WHO 的国际标准里，「正常」上限是 24.9，「超重」从 25.0 开始。所以如果你用国外 App 算出来的结论和本站不同，不一定是算错了，可能是<strong>参照标准不同</strong>。</p>
+<h2 id="它适合做什么">它适合做什么</h2>
+<p>BMI 适合这些场景：</p>
+<ul>
+<li>快速了解自己在人群分布中的大致位置</li>
+<li>作为体检、健身前后的<strong>参考快照</strong></li>
+<li>配合其他指标，做长期趋势观察</li>
+</ul>
+<h2 id="它不适合做什么">它不适合做什么</h2>
+<p>下面这些情况，不能只看 BMI：</p>
+<ul>
+<li><strong>肌肉量高的人</strong>可能被误判为超重</li>
+<li><strong>老年人、孕妇、青少年</strong>需要专门标准</li>
+<li><strong>脂肪分布</strong>（比如腰围）BMI 反映不了</li>
+<li>它<strong>不能替代医学诊断</strong></li>
+</ul>
+<p>所以我在工具页里加了「健康体重区间」和说明文字，而不是只显示一个冷冰冰的数字。</p>
+<h2 id="怎么用更合理">怎么用更合理</h2>
+<p>如果你要用 BMI，我建议：</p>
+<ol>
+<li>固定时间、固定条件测量（比如早晨、空腹）</li>
+<li>同时记录腰围、体脂或体检指标</li>
+<li>把结果当作「提醒」，不是「判决书」</li>
+</ol>
+<p>一个小工具的价值，不在于替你做决定，而在于<strong>把复杂信息整理得更清楚</strong>。BMI 计算器也是这样——算得准只是起点，看得懂才是目的。</p>
+
+        </article>
+          <nav class="article-nav"><a href="ip-before-speedtest.html">← 测网速之前，先看看你的 IP</a> · <a href="rmb-uppercase-traps.html">写票据时，金额大写为什么容易出错 →</a></nav>
+      </div>
+    </div>
+  </main>
+  <script src="../../tools/cursor.js"></script>
+</body>
+</html>
